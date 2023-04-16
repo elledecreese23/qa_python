@@ -53,8 +53,8 @@ class TestBooksCollector:
         collector.add_book_in_favorites('Страх и любовь')
         assert len(collector.get_list_of_favorites_books())==2
 
-    #Вывести список книг с определенным рейтингом
-    def test_get_books_with_specific_rating_raiting_is_6_and_2git(self):
+
+    def test_get_books_with_specific_rating_raiting_is_6_and_2(self):
         collector = BooksCollector()
         collector.add_new_book('Любовь и роботы')
         collector.set_book_rating('Любовь и роботы', 6)
@@ -67,3 +67,10 @@ class TestBooksCollector:
         new_list=collector.get_books_with_specific_rating(6)
         new_list2=collector.get_books_with_specific_rating(2)
         assert len(new_list)==2 and len(new_list2)==1
+
+
+    def test_set_book_rating_add_book_rating_out_of_range(self):
+        collector=BooksCollector()
+        collector.add_new_book('out of range')
+        collector.set_book_rating('out of range',13)
+        assert collector.get_book_rating('out of range')==1, 'Rating out of range'
