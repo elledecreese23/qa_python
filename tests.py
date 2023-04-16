@@ -69,7 +69,7 @@ class TestBooksCollector:
         assert len(new_list)==2 and len(new_list2)==1
 
 
-    def test_set_book_rating_add_book_rating_out_of_range(self):
+    def test_set_book_rating_add_book_rating_out_of_range_13(self):
         collector=BooksCollector()
         collector.add_new_book('out of range')
         collector.set_book_rating('out of range',13)
